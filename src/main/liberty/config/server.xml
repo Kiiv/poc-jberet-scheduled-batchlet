@@ -1,0 +1,25 @@
+<!-- Configuration du serveur Openliberty pour ch13-test-composant/spv-test -->
+<server>
+	<featureManager>
+		<feature>ejb-3.2</feature>
+		<feature>webProfile-8.0</feature>
+	</featureManager>
+
+	<basicRegistry id="basic">
+		<user name="admin" password="adminpwd" />
+		<user name="reader" password="readerpwd" />
+	</basicRegistry>
+	<administrator-role>
+		<user>admin</user>
+	</administrator-role>
+	<reader-role>
+		<user>reader</user>
+	</reader-role>
+	<keyStore id="defaultKeyStore" password="Liberty" />
+
+	<httpEndpoint host="*" httpPort="9080" httpsPort="9443"
+		id="defaultHttpEndpoint" />
+
+	<webApplication location="scheduleBatchlet.war"
+		contextRoot="scheduleBatchlet" />
+</server>
